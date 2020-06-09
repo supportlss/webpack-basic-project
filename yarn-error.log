@@ -1,0 +1,63 @@
+Arguments: 
+  C:\Abby\MPO\software\nodejs\node.exe C:\Abby\MPO\software\nodejs\node_global\node_modules\yarn\bin\yarn.js add --dev @babel/core @babel/preset-env babel-loader @babel/preset-react
+
+PATH: 
+  C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\Symantec\VIP Access Client\;C:\Program Files\Java\jdk1.8.0_231\bin;C:\Program Files\Java\jdk1.8.0_231\jre\bin;C:\Program Files (x86)\Java\tortoiseGit\bin;C:\Program Files (x86)\Java\maven\apache-maven-3.6.0-bin\apache-maven-3.6.0\bin;C:\Program Files (x86)\PuTTY\;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Abby\MPO\software\nodejs\;C:\Users\abby.xueyi.fan\AppData\Local\Microsoft\WindowsApps;C:\Users\abby.xueyi.fan\AppData\Local\Programs\Git\cmd;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1.3\bin;;C:\Abby\MPO\software\nodejs\node_global;
+
+Yarn version: 
+  1.22.4
+
+Node version: 
+  12.16.2
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: ENOENT: no such file or directory, copyfile 'C:\Users\abby.xueyi.fan\AppData\Local\Yarn\Cache\v6\npm-locate-path-2.0.0-2b568b265eec944c6d9c0de9c3dbbbca0354cd8e-integrity\node_modules\locate-path\package.json' -> 'C:\Abby\react\sourceCode\acn\webpack-basic-project\node_modules\pkg-up\node_modules\locate-path\package.json'
+
+npm manifest: 
+  {
+    "name": "webpack-basic-project_hw",
+    "version": "1.0.0",
+    "description": "this is the empty project,\r please reference this blod and do anything you want to do with\r webpack.",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "build": "webpack --config webpack.config.js",
+      "dev": "webpack-dev-server --config webpack.config.js --open"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/FanXueyi/webpack-basic-project.git"
+    },
+    "bugs": {
+      "url": "https://github.com/FanXueyi/webpack-basic-project/issues"
+    },
+    "homepage": "https://github.com/FanXueyi/webpack-basic-project#readme",
+    "dependencies": {
+      "css-loader": "^3.5.3",
+      "file-loader": "^6.0.0",
+      "html-webpack-plugin": "^4.3.0",
+      "mini-css-extract-plugin": "^0.9.0",
+      "node-sass": "^4.14.1",
+      "sass-loader": "^8.0.2",
+      "webpack": "^4.43.0",
+      "webpack-cli": "^3.3.11",
+      "webpack-dev-server": "^3.11.0"
+    },
+    "devDependencies": {
+      "webpack": "^4.43.0",
+      "webpack-cli": "^3.3.11",
+      "webpack-dev-server": "^3.11.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
