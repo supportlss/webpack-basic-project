@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -10,8 +11,8 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, "dist"),
-    // publicPath: "./" 会给引入的文件前面加个前缀，主要是用于生产环境
-    filename: "[name].js"
+    // publicPath: "./webpack/", //会给引入的文件前面加个前缀，主要是用于生产环境
+    filename: "[name][hash:8].js"
   },
   mode: "development",
   module: {
@@ -25,10 +26,13 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
       },
       {
-        test: /.(png|jpg|gif|jpeg)$/,
+        test: /\.(jpg|png|svg)$/,
         use: [
           {
-            loader: "file-loader"
+            loader: 'file-loader',
+            options: {
+              name: '[name][hash:8].[ext]'
+            }
           }
         ]
       },
@@ -43,21 +47,33 @@ module.exports = {
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: path.join(__dirname, `./src/index.html`),
-      filename: "index.html",
-      chunks: ["index", "commons"],
-      inject: true
-    }),
-    new HtmlWebpackPlugin({
-      template: path.join(__dirname, `./src/index.html`),
-      filename: "search.html",
-      chunks: ["search", "commons"],
-      inject: true
-    }),
+    // new HtmlWebpackPlugin({
+    //   template: path.join(__dirname, `./src/index.html`),
+    //   filename: "index.html",
+    //   chunks: ["index", "commons"],
+    //   inject: true
+    // }),
+    // new HtmlWebpackPlugin({
+    //   template: path.join(__dirname, `./src/index.html`),
+    //   filename: "search.html",
+    //   chunks: ["search", "commons"],
+    //   inject: true
+    // }),
     new MiniCssExtractPlugin({
-      filename: "[name].css"
+      filename: "[name][hash:8].css"
     }),
+    new CopyWebpackPlugin(
+        [
+          {
+            // copy images files
+            from: `./src/images/`,
+            to: './img/[name]_[hash:8].[ext]'
+          }
+        ],
+        {
+          context: process.cwd()
+        }
+    ),
     new CleanWebpackPlugin()
   ],
   optimization: {
@@ -67,7 +83,7 @@ module.exports = {
         common: {
           name: "commons",
           chunks: "all",
-          minChunks: 2, // 引用大于两次就独立打包出来
+          // minChunks: 2, // 引用大于两次就独立打包出来
           priority: 10
         }
       }
